@@ -52,7 +52,7 @@ const sections = [
             >
                 {{ section.name }}
             </span>
-            <div class="d-flex flex-wrap justify-space-between ga-4">
+            <div class="d-flex flex-wrap justify-space-evenly ga-4">
                 <v-card
                     v-for="card in section.cards"
                     :key="card.text"

@@ -24,5 +24,6 @@
     max-width: 1000px;
     margin: auto;
     margin-top: 16px;
+    margin-bottom: 16px;
 }
 </style>

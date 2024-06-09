@@ -1,7 +1,14 @@
 <template>
     <v-app>
+        <AppHeader />
+
         <v-main>
-            <router-view />
+            <v-sheet
+                :elevation="2"
+                class="wrapper"
+            >
+                <router-view />
+            </v-sheet>
         </v-main>
 
         <AppFooter />
@@ -11,3 +18,11 @@
 <script setup>
 //
 </script>
+
+<style scoped>
+.wrapper {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 16px;
+}
+</style>

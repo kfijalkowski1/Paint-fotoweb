@@ -1,1 +1,3 @@
 # Paint-fotoweb
+
+test build

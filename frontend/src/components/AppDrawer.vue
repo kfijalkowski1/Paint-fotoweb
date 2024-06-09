@@ -6,6 +6,7 @@ const links = [
     { text: 'Strona główna', href: '/' },
     { text: 'Oferta', href: '/offer' },
     { text: 'Odbierz zdjęcia', href: '/photos' },
+    { text: 'Sprawdź termin', href: '/check-slot' },
     { text: 'Kontakt', href: '/contact' },
 ]
 </script>

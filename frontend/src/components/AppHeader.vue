@@ -1,10 +1,14 @@
 <script setup>
+import { useAppStore } from '@/stores/app'
+
 const links = [
     { text: 'Strona główna', href: '/' },
     { text: 'Oferta', href: '/offer' },
     { text: 'Odbierz zdjęcia', href: '/photos' },
     { text: 'Kontakt', href: '/contact' },
 ]
+
+const appStore = useAppStore()
 </script>
 <template>
     <v-app-bar
@@ -24,6 +28,7 @@ const links = [
             <v-app-bar-nav-icon
                 class="d-md-none"
                 color="secondary"
+                @click="appStore.drawer = !appStore.drawer"
             ></v-app-bar-nav-icon>
             <div class="d-none d-md-flex">
                 <v-divider

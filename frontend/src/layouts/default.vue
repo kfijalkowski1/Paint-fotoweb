@@ -3,6 +3,7 @@
         <AppHeader />
 
         <v-main>
+            <AppDrawer />
             <v-sheet
                 :elevation="2"
                 class="wrapper"

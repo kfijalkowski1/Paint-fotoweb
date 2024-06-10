@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { supabase } from '@/lib/supabaseClient'
+import { useAppStore } from '@/stores/app'
+import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const fileInput = ref(null)
 const fileSelected = ref(false)
@@ -37,6 +40,18 @@ const sendFile = async () => {
         if (fileInput.value) fileInput.value.value = null
     }
 }
+
+const router = useRouter()
+const appStore = useAppStore()
+
+onMounted(async () => {
+    const data = (await supabase.auth.getSession()).data
+
+    if (!data?.session?.expires_in) {
+        router.push('/')
+        appStore.adminView = false
+    }
+})
 </script>
 <template>
     <div class="pa-4">

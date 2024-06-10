@@ -1,6 +1,8 @@
 <script setup>
 import { supabase } from '@/lib/supabaseClient'
+import { useAppStore } from '@/stores/app'
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const messages = ref([])
 
@@ -16,6 +18,18 @@ const deleteMessage = async (id) => {
 
 onMounted(() => {
     loadMessages()
+})
+
+const router = useRouter()
+const appStore = useAppStore()
+
+onMounted(async () => {
+    const data = (await supabase.auth.getSession()).data
+
+    if (!data?.session?.expires_in) {
+        router.push('/')
+        appStore.adminView = false
+    }
 })
 </script>
 <template>

@@ -58,7 +58,7 @@ onMounted(async () => {
 <template>
     <div class="pa-4">
         <span class="d-flex justify-center align-center text-h3">
-            ADMIN PANEL - UPLOAD FILES
+            ADMIN PANEL - PRZESYŁANIE PLIKÓW
         </span>
     </div>
 

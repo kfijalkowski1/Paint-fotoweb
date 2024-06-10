@@ -1,3 +1,10 @@
+<script setup>
+const sections = [
+    { title: 'AAAAA', text: 'BBBBBB' },
+    { title: 'AAAAB', text: 'BBBBBB' },
+    { title: 'AAAAC', text: 'BBBBBB' },
+]
+</script>
 <template>
     <div>
         <v-img
@@ -20,10 +27,29 @@
                 </v-btn>
             </div>
         </v-img>
-        <span class="d-flex justify-center align-center text-h3">O NAS</span>
+        <span class="d-flex justify-center align-center text-h3 ma-4">
+            O NAS
+        </span>
+
+        <div
+            :class="{ 'flex-md-row-reverse': index % 2 }"
+            class="d-flex flex-column flex-md-row my-4"
+            v-for="(section, index) in sections"
+            :key="section.title"
+        >
+            <v-img
+                height="400px"
+                max-width="500px"
+                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                cover
+            ></v-img>
+            <div
+                class="pa-4 flex-grow-1"
+                :class="{ 'text-end': index % 2 !== 1 }"
+            >
+                <h5 class="text-h5">AAAAAAAAA</h5>
+                <p>BBBBB {{ index }}</p>
+            </div>
+        </div>
     </div>
 </template>
-
-<script setup>
-//
-</script>

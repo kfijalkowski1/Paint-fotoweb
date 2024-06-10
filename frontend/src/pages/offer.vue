@@ -26,6 +26,10 @@ const sections = [
         ],
     },
 ]
+
+const getImage = (path) => {
+    return new URL(`/src/assets/${path}`, import.meta.url).href
+}
 </script>
 <template>
     <div>
@@ -60,7 +64,7 @@ const sections = [
                 >
                     <v-img
                         height="200px"
-                        :src="'/src/assets/' + card.src"
+                        :src="getImage(card.src)"
                         cover
                     ></v-img>
 

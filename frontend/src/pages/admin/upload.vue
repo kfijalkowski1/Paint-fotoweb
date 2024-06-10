@@ -75,7 +75,7 @@ onMounted(async () => {
                 start
             />
 
-            Wybierz plik zip
+            {{ !fileSelected ? 'Wybierz plik zip' : 'Plik wybrany!' }}
             <input
                 ref="fileInput"
                 type="file"

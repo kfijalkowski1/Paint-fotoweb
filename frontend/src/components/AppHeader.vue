@@ -26,10 +26,12 @@ const links = computed(() =>
         color="primary"
     >
         <template v-slot:prepend>
-            <v-app-bar-nav-icon
-                color="secondary"
-                icon="mdi-camera"
-            ></v-app-bar-nav-icon>
+            <RouterLink to="/">
+                <v-app-bar-nav-icon
+                    color="secondary"
+                    icon="mdi-camera"
+                ></v-app-bar-nav-icon>
+            </RouterLink>
         </template>
 
         <v-app-bar-title>Fotoweb</v-app-bar-title>

@@ -48,7 +48,24 @@ onMounted(() => {
                 :events="events"
                 color="primary"
                 type="month"
-            ></v-calendar>
+            >
+                <template #event="{ allDay, event }">
+                    <VChip
+                        color="blue"
+                        density="comfortable"
+                        :label="allDay"
+                        :style="{ width: '100%' }"
+                    >
+                        <VBadge
+                            inline
+                            dot
+                            color="blue"
+                        />
+
+                        {{ event.title }}
+                    </VChip>
+                </template>
+            </v-calendar>
         </div>
     </div>
 </template>

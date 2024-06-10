@@ -1,5 +1,6 @@
 <script setup>
 import { supabase } from '@/lib/supabaseClient'
+import { useAppStore } from '@/stores/app'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -7,6 +8,7 @@ const email = ref('')
 const password = ref('')
 
 const router = useRouter()
+const appStore = useAppStore()
 
 const authorize = async () => {
     try {
@@ -16,6 +18,7 @@ const authorize = async () => {
         })
 
         router.push('/admin/messages')
+        appStore.adminView = true
     } catch {
         email.value = ''
         password.value = ''
@@ -27,6 +30,7 @@ onMounted(async () => {
 
     if (data?.session?.expires_in) {
         router.push('/admin/messages')
+        appStore.adminView = true
     }
 })
 </script>

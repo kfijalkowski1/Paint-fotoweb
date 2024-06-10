@@ -56,6 +56,7 @@ onMounted(() => {
                 <v-textarea
                     :model-value="message.message"
                     hide-details
+                    readonly
                 ></v-textarea>
             </v-sheet>
         </div>

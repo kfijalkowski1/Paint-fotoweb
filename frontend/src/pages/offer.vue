@@ -3,26 +3,26 @@ const sections = [
     {
         name: 'fotograf',
         cards: [
-            { text: 'komunia' },
-            { text: 'biznesowe' },
-            { text: 'szkolne' },
-            { text: 'śluby' },
-            { text: 'produkty' },
-            { text: 'wydarzenia' },
-            { text: 'konferencje' },
-            { text: 'plenerowe' },
-            { text: 'wiele innych' },
+            { text: 'komunia', src: 'komunia.jpg' },
+            { text: 'biznesowe', src: 'biznes.jpg' },
+            { text: 'szkolne', src: 'szkolna.jpg' },
+            { text: 'śluby', src: 'ślubna.jpg' },
+            { text: 'produkty', src: 'produktowa.jpg' },
+            { text: 'wydarzenia', src: 'wydarzenia.jpg' },
+            { text: 'konferencje', src: 'konferencje.jpg' },
+            { text: 'plenerowe', src: 'plenerowa.jpg' },
+            { text: 'wiele innych', src: 'wieleinnych.jpg' },
         ],
     },
     {
         name: 'studio',
         cards: [
-            { text: 'biznesowe' },
-            { text: 'portrety' },
-            { text: 'ciążowe' },
-            { text: 'green screen' },
-            { text: 'nagrania' },
-            { text: 'inne' },
+            { text: 'biznesowe', src: 'biznes.jpg' },
+            { text: 'portrety', src: 'portret.jpg' },
+            { text: 'ciążowe', src: 'ciążowa.jpg' },
+            { text: 'green screen', src: 'greenscreen.jpg' },
+            { text: 'nagrania', src: 'nagrania.jpg' },
+            { text: 'inne', src: 'inne.jpg' },
         ],
     },
 ]
@@ -60,7 +60,7 @@ const sections = [
                 >
                     <v-img
                         height="200px"
-                        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                        :src="'/src/assets/' + card.src"
                         cover
                     ></v-img>
 

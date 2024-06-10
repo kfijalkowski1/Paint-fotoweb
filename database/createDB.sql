@@ -13,6 +13,15 @@ CREATE TABLE Albums (
     album_path TEXT
 );
 
+CREATE TABLE Messages (
+    message_id SERIAL PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    message TEXT NOT NULL,
+    sender_name VARCHAR(100) NOT NULL,
+    sender_surname VARCHAR(100) NOT NULL
+);
+
 -- Create a function to check for overlapping slots
 CREATE OR REPLACE FUNCTION check_overlapping_slots()
 RETURNS TRIGGER AS $$

@@ -1,3 +1,20 @@
+<script setup>
+import { ref } from 'vue'
+import { useDate } from 'vuetify'
+
+const dateAdapter = useDate()
+const events = [
+    {
+        title: 'test',
+        start: dateAdapter.startOfDay(new Date()),
+        end: dateAdapter.startOfDay(new Date()),
+        color: 'green',
+        allDay: true,
+    },
+]
+
+const today = ref(null)
+</script>
 <template>
     <div>
         <v-img
@@ -20,10 +37,18 @@
                 </v-btn>
             </div>
         </v-img>
-        <span class="d-flex justify-center align-center text-h3">O NAS</span>
+        <div class="pa-4">
+            <span class="d-flex justify-center align-center text-h3">
+                SPRAWDŹ TERMIN
+            </span>
+
+            <v-calendar
+                ref="calendar"
+                v-model="today"
+                :events="events"
+                color="primary"
+                type="month"
+            ></v-calendar>
+        </div>
     </div>
 </template>
-
-<script setup>
-//
-</script>

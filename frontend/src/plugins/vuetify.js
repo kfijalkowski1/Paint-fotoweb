@@ -10,7 +10,8 @@ import 'vuetify/styles'
 
 // Composables
 import { createVuetify } from 'vuetify'
-// import colors from 'vuetify/util/colors'
+
+import { VCalendar } from 'vuetify/labs/VCalendar'
 
 const light = {
     dark: false,
@@ -26,5 +27,8 @@ export default createVuetify({
         themes: {
             light,
         },
+    },
+    components: {
+        VCalendar,
     },
 })

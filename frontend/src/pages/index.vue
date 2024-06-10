@@ -1,8 +1,17 @@
 <script setup>
 const sections = [
-    { title: 'AAAAA', text: 'BBBBBB' },
-    { title: 'AAAAB', text: 'BBBBBB' },
-    { title: 'AAAAC', text: 'BBBBBB' },
+    {
+        title: 'Studio',
+        text: 'Nasze studio fotograficzne oferuje profesjonalne sesje zdjęciowe w przyjaznej i komfortowej atmosferze.  Dysponujemy nowoczesnym sprzętem i kreatywnym zespołem, który uwieczni najważniejsze chwile w Twoim życiu.  Zapraszamy do współpracy zarówno osoby prywatne, jak i firmy, gwarantując najwyższą jakość usług i satysfakcję z efektów.',
+    },
+    {
+        title: 'Fotografia',
+        text: 'Nasze usługi fotograficzne obejmują szeroki zakres, od sesji portretowych i rodzinnych, przez fotografię ślubną, aż po zdjęcia korporacyjne i produktowe.  Każde zlecenie traktujemy indywidualnie, dbając o detale i dostosowując styl zdjęć do oczekiwań klienta. Gwarantujemy profesjonalne podejście, kreatywność oraz wysoką jakość końcowych fotografii.',
+    },
+    {
+        title: 'Zespół',
+        text: 'Adam Jeliński, Bartosz Pełka, Krzysztof Fijałkowski i Rafał Szczepaniak',
+    },
 ]
 </script>
 <template>
@@ -33,22 +42,24 @@ const sections = [
 
         <div
             :class="{ 'flex-md-row-reverse': index % 2 }"
-            class="d-flex flex-column flex-md-row my-4"
+            class="d-flex flex-column flex-md-row my-4 align-center"
             v-for="(section, index) in sections"
             :key="section.title"
         >
-            <v-img
-                height="400px"
-                max-width="500px"
-                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                cover
-            ></v-img>
+            <div class="flex-grow-1">
+                <v-img
+                    height="400px"
+                    width="400px"
+                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                    cover
+                ></v-img>
+            </div>
             <div
                 class="pa-4 flex-grow-1"
-                :class="{ 'text-end': index % 2 !== 1 }"
+                :style="{ 'max-width': '600px' }"
             >
-                <h5 class="text-h5">AAAAAAAAA</h5>
-                <p>BBBBB {{ index }}</p>
+                <h5 class="text-h5">{{ section.title }}</h5>
+                <p>{{ section.text }}</p>
             </div>
         </div>
     </div>

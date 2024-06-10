@@ -29,6 +29,8 @@ onMounted(async () => {
     if (!data?.session?.expires_in) {
         router.push('/')
         appStore.adminView = false
+    } else {
+        appStore.adminView = true
     }
 })
 </script>

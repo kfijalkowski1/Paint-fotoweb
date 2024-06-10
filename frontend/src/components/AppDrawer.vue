@@ -8,6 +8,7 @@ const links = computed(() =>
         ? [
               { text: 'Wiadomości', href: '/admin/messages' },
               { text: 'Wyślij pliki', href: '/admin/upload' },
+              { text: 'Zmień terminy', href: '/admin/slots' },
               { text: 'Wyloguj', href: '/admin/logout' },
           ]
         : [

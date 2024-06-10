@@ -12,7 +12,7 @@ const sections = [
     },
     {
         title: 'Zespół',
-        text: 'Adam Jeliński, Bartosz Pełka, Krzysztof Fijałkowski i Rafał Szczepaniak',
+        text: 'Adam Jeliński, Bartłomiej Pełka, Krzysztof Fijałkowski i Rafał Szczepaniak',
         src: 'zespół.jpg',
     },
 ]

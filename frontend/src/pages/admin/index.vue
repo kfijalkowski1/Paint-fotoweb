@@ -1,13 +1,34 @@
 <script setup>
-import { ref } from 'vue'
+import { supabase } from '@/lib/supabaseClient'
+import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-const login = ref('')
+const email = ref('')
 const password = ref('')
 
-const authorize = () => {
-    // send request to database
-    // if correct redirect
+const router = useRouter()
+
+const authorize = async () => {
+    try {
+        await supabase.auth.signInWithPassword({
+            email: email.value,
+            password: password.value,
+        })
+
+        router.push('/admin/messages')
+    } catch {
+        email.value = ''
+        password.value = ''
+    }
 }
+
+onMounted(async () => {
+    const data = (await supabase.auth.getSession()).data
+
+    if (data?.session?.expires_in) {
+        router.push('/admin/messages')
+    }
+})
 </script>
 <template>
     <div>
@@ -20,13 +41,15 @@ const authorize = () => {
             :style="{ 'max-width': '500px' }"
         >
             <v-text-field
-                v-model="login"
-                label="Login"
+                v-model="email"
+                label="E-mail"
+                type="email"
                 required
             ></v-text-field>
             <v-text-field
                 v-model="password"
-                label="Password"
+                label="Hasło"
+                type="password"
                 required
                 hidden
             ></v-text-field>
@@ -36,7 +59,7 @@ const authorize = () => {
                 color="secondary"
                 @click="authorize"
             >
-                Login
+                Zaloguj
             </v-btn>
         </div>
     </div>

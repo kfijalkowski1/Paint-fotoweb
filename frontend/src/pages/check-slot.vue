@@ -27,21 +27,10 @@ const today = ref(null)
             <div
                 class="d-flex flex-column ga-8 align-center justify-center fill-height"
             >
-                <span class="text-h3 text-white">Fotoweb</span>
-                <v-btn
-                    variant="outlined"
-                    color="white"
-                >
-                    Więcej
-                    <v-icon icon="mdi-arrow-down"></v-icon>
-                </v-btn>
+                <span class="text-h3 text-white">Sprawdź termin</span>
             </div>
         </v-img>
         <div class="pa-4">
-            <span class="d-flex justify-center align-center text-h3">
-                SPRAWDŹ TERMIN
-            </span>
-
             <v-calendar
                 ref="calendar"
                 v-model="today"

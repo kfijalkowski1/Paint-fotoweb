@@ -1,19 +1,30 @@
 <script setup>
-import { ref } from 'vue'
+import { supabase } from '@/lib/supabaseClient'
+import { onMounted, ref } from 'vue'
 import { useDate } from 'vuetify'
 
 const dateAdapter = useDate()
-const events = [
-    {
-        title: 'test',
-        start: dateAdapter.startOfDay(new Date()),
-        end: dateAdapter.startOfDay(new Date()),
-        color: 'green',
-        allDay: true,
-    },
-]
+const events = ref([])
 
 const today = ref(null)
+
+const getSlots = async () => {
+    const slots = await supabase.from('slots').select()
+
+    console.log(Date.parse(slots.data[0].start_time), new Date())
+
+    events.value = slots.data.map((slot) => ({
+        title: 'Wolny termin',
+        start: dateAdapter.startOfDay(new Date(slot.start_time)),
+        end: dateAdapter.startOfDay(new Date(slot.end_time)),
+        color: 'blue',
+        allDay: true,
+    }))
+}
+
+onMounted(() => {
+    getSlots()
+})
 </script>
 <template>
     <div>
